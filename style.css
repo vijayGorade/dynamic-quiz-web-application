@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+background-color: rgba(12, 12, 12, 0.785);
+flex-direction: column;
+flex-wrap: wrap;
+padding: 10px;
+overflow: hidden;
+}
+
+.mainDiv{
+    display: flex;
+flex-direction: column;
+gap:20px;
+margin-top: 100px;
+color: white;
+align-items: center;
+    justify-content: center;
+}
+.mainDiv h1{
+    color: rgb(202, 202, 202);
+}
+.btnsLanguage{
+    display: flex;
+    gap:20px;
+    flex-wrap: wrap;
+     align-items: center;
+    justify-content: center;
+}
+.btnsLanguage button{
+    height:40px;
+    width: 200px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+color: white;
+
+}
+.starBtn{
+     height:40px;
+    width: 200px;
+    cursor: pointer;
+    color: rgba(12, 12, 12, 0.785);
+   background-color: white;
+   transition: all .6s;
+   border-radius: 5px;
+   font-size: 20px;
+   border: none;
+  
+}
+.starBtn:hover{
+ color: white;
+ background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.quizDiv{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.threeOptionDiv{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.timeAndNameDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+}
+.threeOptionDiv div{
+padding: 10px;
+height: 50px,auto;
+width: 80%,auto;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid rgba(186, 178, 178, 0.529);
+font-size: 18px;
+border-radius: 2px;
+cursor: pointer;
+color: white;
+transition: all .5s;
+font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.threeOptionDiv div:hover{
+    color: rgba(12, 12, 12, 0.785);
+   background-color: white;
+}
+.question{
+    color: white;
+    font-size: 28px;
+}
+.saveAndNextBtn{
+    display:flex;
+    align-items: center;
+padding: 10px;
+width: 40%;
+border-radius: 5px;
+justify-content: center;
+font-size: 18px;
+background-color: rgb(255, 255, 255);
+cursor: pointer;
+border: none;
+}
+.saveAndNextBtn:hover{
+     color: white;
+ background-color: red;
+
+}
+.numberPara{
+    color: white;
+}
+.timeAndNameDiv{
+    color: rgba(255, 255, 255, 0.742);
+}
+@keyframes timerColorChange {
+    from{
+color: transparent;
+    }
+    to{
+color: red;
+    }
+}
+.scoreShowDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: white;
+    gap: 10px;
+    position: relative;
+    bottom:500px;
+  visibility: hidden;
+  background-color:rgb(12, 12, 12);
+  width: 100%;
+  height: 100%;
+}
+.scoreShowDiv p{
+    color: rgb(60, 219, 60);
+}
+.scoreShowDiv h1{
+    color: red;
+}
+.scoreShowDiv h2{
+    color: brown;
+}
+.quizDiv{
+    position: relative;
+    bottom: 200px;
+   visibility: hidden;
+   transition: all 10s;
+}
+@media (max-width:450px) {
+   .scoreShowDiv{
+    position: relative;
+    bottom:750px;
+} 
+.quizDiv{
+    position: relative;
+    bottom: 400px;
+    transition: all .5s;
+}
+}
+
+.scoreShowDiv button{
+    height: 40px;
+    width: 200px;
+    font-size: 19px;
+    background-color: rgb(33, 190, 83);
+    color: white;
+    cursor: pointer;
+    border: none;
+}
