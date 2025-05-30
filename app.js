@@ -419,15 +419,14 @@ const javaQuestions = [
 function removeStyle(btnArray)
 {
     btnArray.forEach((e)=>{
-e.style.border="2px solid rgba(255, 255, 255, 0.3)";
- e.style.backgroundColor="transparent";
+ e.style.backgroundColor="rgb(39, 39, 251)";
     })
 }
 
 function setStyle(e)
 {
-e.style.backgroundColor="white";
-e.style.color="black";
+e.style.backgroundColor="rgb(222, 8, 8)";
+
 }
 
 let htmlchecker=0;
@@ -500,8 +499,6 @@ quizStartDiv.style.visibility="hidden"
     else if(csschecker)
     {
       
-mainQuizDiv.style.visibility="visible";
-quizStartDiv.style.visibility="hidden"
          setDataOnUI(cssQuestions,true)
 nameQuiz.innerText="CSS";
 intervalCode=  setInterval(()=>{
@@ -511,8 +508,6 @@ intervalCode=  setInterval(()=>{
     else if(jschecker)
     {
       
-mainQuizDiv.style.visibility="visible";
-quizStartDiv.style.visibility="hidden"
         setDataOnUI(jsQuestions,true)
    nameQuiz.innerText="Javascript";
    intervalCode=  setInterval(()=>{
@@ -531,8 +526,12 @@ nameQuiz.innerText="Java";
      },10000);
     } 
     else{
-      alert("please select the language for quiz")
+      alert("please select the language for quiz");
+      return;
     }
+mainQuizDiv.style.transform="scale(1)";
+quizStartDiv.style.transform="scale(0)"
+
 })
 
 let index=0;
@@ -565,22 +564,24 @@ checkAnawer=true;
 }
 
 let codeTimeInterval=0;
-const paraTimer=document.querySelector(".paraTimer")
-
+const paraTimer=document.querySelector(".paraTimer");
 function setStyle2(arr)
 {
 arr.forEach((e)=>{
 
-e.style.color="white"
+e.style.color="white";
 })
 }
-
+let percentageWidth=0;
 function setDataOnUI(Questions,isBeginQuestion){
   clearInterval(codeTimeInterval);
-  removeStyle(fourOptions);
+
   setStyle2(fourOptions);
+  fourOptions.forEach((e)=>{
+e.style.color="black  "
+})
 paraTimer.style.animationName="timerColorChange";
-paraTimer.style.animationDuration=".5s";
+paraTimer.style.animationDuration=".3s";
 paraTimer.style.animationTimingFunction="linear";
 paraTimer.style.animationIterationCount="infinite";
 
@@ -594,6 +595,7 @@ let numberCount=10;
 console.log(index)
 if(index==HTMLQuestion.length)
 {
+alert("");
 timeLestParaHTML.innerText="over";
   return 1;
 }
@@ -632,15 +634,19 @@ const ScoreShoewPara=document.querySelector(".ScoreShoewPara");
 
 saveAndNextbtn.addEventListener("click",()=>{
   clearInterval(intervalCode)
-  removeStyle(fourOptions);
-  setStyle2(fourOptions);
+  removeStyle2(fourOptions);
+
   clearInterval(code)
   if(index==HTMLQuestion.length){
     console.log(scoreOfQuiz);
-    timeLestParaHTML.innerText="over";
-    resultDiv.style.visibility="visible";
-    ScoreShoewPara.innerText=scoreOfQuiz;
-    mainQuizDiv.style.visibility="hidden"
+    percentageWidth=(scoreOfQuiz/HTMLQuestion.length)*250;
+document.querySelector(".childProgresssDiv").style.width=percentageWidth+"px";
+    resultDiv.style.transform="scale(1)";
+mainQuizDiv.style.transform="scale(0)"
+  
+ScoreShoewPara.innerText=scoreOfQuiz;
+  
+ 
     return;
   }
 if(htmlchecker)
@@ -677,11 +683,22 @@ console.log(optionDiv);
 optionDiv.addEventListener("click",(e)=>{
 if(e.target.className=="option1"||e.target.className=="option2"||e.target.className=="option3"||e.target.className=="option4")
 {
-removeStyle(fourOptions);
-setStyle(e.target);
+removeStyle2(fourOptions);
+e.target.style.backgroundColor="rgba(45, 19, 244, 0.45)"
 }
 });
 
+function removeStyle2(arr)
+{
+arr.forEach((e)=>{
+e.style.backgroundColor="rgba(86, 86, 86, 0.203)";
 
+})
+}
+const gotoHomeBtn=document.querySelector(".home");
 
-
+gotoHomeBtn.addEventListener("click",()=>{
+  percentageWidth=0;
+  resultDiv.style.transform="scale(0)";
+  quizStartDiv.style.transform="scale(1)";
+})
